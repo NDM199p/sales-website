@@ -1,0 +1,48 @@
+<div
+  style="height: 90vh"
+  class="container d-flex justify-content-center align-items-center"
+>
+  <div class="row">
+    <div class="col">
+      <div>
+        <div class="row mb-4">
+          <div class="col">
+            <h1>Sign in</h1>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <form action="/login/password" method="post">
+              <section class="mb-3">
+                <label class="form-label" for="username">Username</label>
+                <input
+                  class="form-control"
+                  id="username"
+                  name="username"
+                  type="text"
+                  autocomplete="username"
+                  required
+                  autofocus
+                />
+              </section>
+              <section class="mb-3">
+                <label class="form-label" for="current-password"
+                  >Password</label
+                >
+                <input
+                  class="form-control"
+                  id="current-password"
+                  name="password"
+                  type="password"
+                  autocomplete="current-password"
+                  required
+                />
+              </section>
+              <button class="btn btn-primary" type="submit">Sign in</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- boostrap min css -->
+    <link
+      rel="stylesheet"
+      href="http://localhost:9000/bootstrap/css/bootstrap.min.css"
+    />
+
+    <link rel="stylesheet" href="/stylesheets/admin/style.css" />
+
+    <title>Document</title>
+  </head>
+  <body>
+    <header
+      class="w-100 bg-warning position-fixed fixed-top"
+      style="height: 60px"
+    ></header>
+
+    <nav
+      class="position-fixed fixed-bottom fixed-start"
+      style="
+        overflow-y: auto;
+        overflow-x: hidden;
+        width: 250px;
+        height: calc(100vh - 60px);
+      "
+    >
+      <div class="row">
+        <div class="col">
+          <div
+            class="accordion wow fadeInLeftBig"
+            data-wow-duration="3s"
+            data-wow-delay="0.5s"
+          >
+            <div class="accordion-item">
+              <button
+                class="accordion-button pt-2 pb-2"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseOne"
+                aria-expanded="true"
+                aria-controls="collapseOne"
+              >
+                <i class="fa fa-code" aria-hidden="true"></i>
+                <span class="p-2">Danh mục</span>
+              </button>
+              <div
+                id="collapseOne"
+                class="accordion-collapse collapse show"
+                aria-labelledby="headingOne"
+                data-bs-parent="#accordionExample"
+              >
+                <div class="accordion-body ps-5">
+                  <div class="pb-2">
+                    <a class="text-decoration-none text-dark" href=""
+                      >Thêm danh mục</a
+                    >
+                  </div>
+                  <div class="pb-2">
+                    <a class="text-decoration-none text-dark" href=""
+                      >Tất cả danh mục</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div
+      class="body overflow-auto"
+      style="
+        height: calc(100vh -60px);
+        width: calc(100vw - 250px);
+        position: fixed;
+        top: 60px;
+        left: 250px;
+      "
+    >
+      <%-body%>
+    </div>
+
+    <!-- Jquery -->
+    <script src="http://localhost:9000/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap js -->
+    <script src="http://localhost:9000/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- font awesome js -->
+    <script src="http://localhost:9000/font-awesome/js/all.min.js"></script>
+
+    <!-- wow.js -->
+    <script src="http://localhost:9000/wow/wow.min.js"></script>
+  </body>
+</html>

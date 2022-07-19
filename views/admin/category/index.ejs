@@ -1,0 +1,32 @@
+<div class="container">
+  <h1><%= title %></h1>
+  <p>Welcome to <%= title %></p>
+
+  <a class="btn btn-primary" href="/admin/category/add">Create</a>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Describe</th>
+        <th colspan="2" scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% categories.forEach(function(category){ %>
+      <tr>
+        <th scope="row">
+          <a href="/admin/category/details/<%= category._id%>"
+            ><%= category._id%></a
+          >
+        </th>
+        <td><%= category.name%></td>
+        <td><%= category.describe%></td>
+        <td><a href="/admin/category/edit/<%= category._id%>">Update</a></td>
+        <td><a href="/admin/category/delete/<%= category._id%>">Delete</a></td>
+      </tr>
+      <% }); %>
+    </tbody>
+  </table>
+</div>
