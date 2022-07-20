@@ -7,6 +7,10 @@ var logger = require("morgan");
 var passport = require("passport");
 var expressLayout = require("express-ejs-layouts");
 var mongoose = require("mongoose");
+var bcrypt = require('bcryptjs');
+
+
+
 mongoose.connect(
   "mongodb+srv://admin:admin@cluster0.ausoi.mongodb.net/sales-database?retryWrites=true&w=majority"
 );
