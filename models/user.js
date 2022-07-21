@@ -1,7 +1,7 @@
 var mongoose = require("mongoose");
-var bcrypt = require('bcryptjs');
+var bcrypt = require("bcryptjs");
 var { Schema } = mongoose;
-var CONFIG = require("../configs");
+var CONFIG = require("../configs/index.config");
 
 const UserSchema = new Schema({
   name: String,
@@ -10,15 +10,8 @@ const UserSchema = new Schema({
   createDate: Date,
 });
 
-UserSchema.methods.verifyPassword = function(password) {
-  mongoose.model('Animal').findOne({ username: this.username }, function(error, user){
-    if(error) return false;
-    bcrypt.compare(CONFIG.BCRYPT_KEY, user.password, function(err, res) {
-      // res === true
-      if(res) return true;
-      return false;
-    });
-  })
+UserSchema.methods.verifyPassword = function (password) {
+  return bcrypt.compareSync(password, hash);
 };
 
 module.exports = User = mongoose.model("User", UserSchema);

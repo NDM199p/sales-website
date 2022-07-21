@@ -1,4 +1,4 @@
-`use trict`
+`use trict`;
 
 var User = require("../models/user");
 
