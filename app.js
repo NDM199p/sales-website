@@ -7,6 +7,9 @@ var logger = require("morgan");
 var passport = require("passport");
 var expressLayout = require("express-ejs-layouts");
 var mongoose = require("mongoose");
+var bcrypt = require("bcryptjs");
+var session = require("express-session");
+
 mongoose.connect(
   "mongodb+srv://admin:admin@cluster0.ausoi.mongodb.net/sales-database?retryWrites=true&w=majority"
 );
@@ -31,6 +34,14 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
+// session
+app.use(
+  session({
+    secret: "s3Cur3",
+    name: "sessionId",
+  })
+);
+
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
@@ -52,15 +63,10 @@ passport.deserializeUser(function (id, done) {
 passport.use(
   new LocalStrategy(function (username, password, done) {
     User.findOne({ username: username }, function (err, user) {
-      if (err) {
-        return done(err);
-      }
-      if (!user) {
-        return done(null, false);
-      }
-      if (!user.verifyPassword(password)) {
-        return done(null, false);
-      }
+      if (err) return done(err);
+      if (!user) return done(null, false);
+      let verifyPassword = user.verifyPassword(password);
+      if (!verifyPassword) return done(null, false);
       return done(null, user);
     });
   })
@@ -83,7 +89,7 @@ app.use(function (err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render("error");
+  res.render("error", { layout: false });
 });
 
 module.exports = app;
