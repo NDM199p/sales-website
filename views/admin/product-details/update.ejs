@@ -1,0 +1,106 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1 class="mb-3">Update</h1>
+      <hr />
+      <h2>Product</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-4">
+      <!--  -->
+      <div>
+        <div class="row mb-4">
+          <div class="col">
+            <!-- form product details-->
+            <form action="/admin/product-details/update" method="POST" class="mb-3">
+              <input type="hidden" name="_id" value="<%= productDetails._id %> ">
+
+              <!-- categories -->
+              <div class="mb-3">
+                <select
+                  name="categoryId"
+                  class="form-select"
+                  aria-label="Default select example"
+                >
+                  <% categories.forEach(category => { %>
+                  <option <% if(category._id == productDetails.categoryId) return "selected" %>  value="<%= category._id %>">
+                    <%= category.name%>
+                  </option>
+                  <% }); %>
+                </select>
+              </div>
+
+              <!-- name -->
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label"
+                  >Name Product</label
+                >
+                <input
+                value="<%= productDetails.name %> "
+                  name="name"
+                  type="text"
+                  class="form-control"
+                  id="exampleFormControlInput1"
+                  placeholder="Name Product"
+                />
+              </div>
+
+              <!-- describe -->
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label"
+                  >Describe</label
+                >
+                <input
+                value="<%= productDetails.describe %> "
+                  name="describe"
+                  type="text"
+                  class="form-control"
+                  id="exampleFormControlInput1"
+                  placeholder="Describe"
+                />
+              </div>
+
+              <!-- video -->
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label"
+                  >Video</label
+                >
+                <input
+                  name="video"
+                  type="file"
+                  class="form-control"
+                  id="exampleFormControlInput1"
+                  placeholder="name@example.com"
+                />
+              </div>
+
+              <!-- slug -->
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label"
+                  >Slug</label
+                >
+                <input
+                value="<%= productDetails.slug %> "
+                  name="slug"
+                  type="text"
+                  class="form-control"
+                  id="exampleFormControlInput1"
+                  placeholder="example-example-1"
+                />
+              </div>
+
+              <!-- create -->
+              <div class="mb-3">
+                <button type="submit" class="btn btn-primary">Update</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+       
+      </div>
+    </div>
+  </div>
+</div>

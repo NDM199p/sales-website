@@ -1,3 +1,5 @@
+"use strict";
+
 var createError = require("http-errors");
 var express = require("express");
 var path = require("path");
@@ -7,7 +9,6 @@ var logger = require("morgan");
 var passport = require("passport");
 var expressLayout = require("express-ejs-layouts");
 var mongoose = require("mongoose");
-var bcrypt = require("bcryptjs");
 var session = require("express-session");
 
 mongoose.connect(
@@ -42,8 +43,10 @@ app.use(
   })
 );
 
-app.use(bodyParser.json()); // for parsing application/json
-app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
+// for parsing application/json
+app.use(bodyParser.json());
+// for parsing application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // passport
 app.use(passport.initialize());

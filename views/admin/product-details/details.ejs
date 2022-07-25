@@ -1,0 +1,255 @@
+<div class="container">
+  <div class="row mb-3 mt-5">
+    <div class="col">
+      <h1 class="mb-3">Update</h1>
+      <hr />
+      <h2>Product</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-4">
+      <!--  -->
+      <div>
+        <div class="row mb-4">
+          <div class="col">
+            <!-- form product details-->
+            <div class="mb-3">
+              <!-- categories -->
+              <div class="row mb-3">
+                <div class="col">
+                  <h5>CategoryId:</h5>
+                </div>
+                <div class="col">
+                  <p><%= productDetails.categoryId %></p>
+                </div>
+              </div>
+
+              <!-- name -->
+              <div class="row mb-3">
+                <div class="col">
+                  <h5>Name Product:</h5>
+                </div>
+
+                <div class="col">
+                  <p><%= productDetails.name %></p>
+                </div>
+              </div>
+
+              <!-- describe -->
+              <div class="row mb-3">
+                <div class="col">
+                  <h5>Describe:</h5>
+                </div>
+                <div class="col">
+                  <p><%= productDetails.describe %></p>
+                </div>
+              </div>
+
+              <!-- video -->
+              <div class="row mb-3">
+                <div class="col">
+                  <h5>Video:</h5>
+                </div>
+                <div class="col">
+                  <p>null</p>
+                </div>
+              </div>
+
+              <!-- slug -->
+              <div class="row mb-3">
+                <div class="col">
+                  <h5>Slug:</h5>
+                </div>
+                <div class="col">
+                  <p><%= productDetails.slug %></p>
+                </div>
+              </div>
+
+              <!-- action -->
+              <div class="mb-3">
+                <div>
+                  <a
+                    href="/admin/product-details/update/<%= productDetails._id %> "
+                    role="button"
+                    class="btn btn-danger"
+                  >
+                    + Update
+                  </a>
+                  <a
+                    href="/admin/product-details/delete/<%= productDetails._id %> "
+                    role="button"
+                    class="btn btn-danger"
+                  >
+                    - Delete All
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <hr />
+
+        <div class="row">
+          <div class="col">
+            <!-- Accordion product items -->
+            <div>
+              <!-- menu -->
+              <div class="row">
+                <div class="col">
+                  <!-- menu -->
+                  <div class="p-2">
+                    <a
+                      href="/admin/product/create/<%= productDetails._id %> "
+                      role="button"
+                      class="btn btn-primary"
+                      >+ Create</a
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <hr />
+
+              <!-- items -->
+              <div class="row">
+                <div class="col">
+                  <!-- content -->
+                  <div class="accordion" id="accordionExample">
+                    <% if(productDetails.products){ %> <%
+                    productDetails.products.forEach(product => {%>
+                    <div class="accordion-item">
+                      <h2
+                        class="accordion-header"
+                        id="heading<%= product._id %>"
+                      >
+                        <button
+                          class="accordion-button"
+                          type="button"
+                          data-bs-toggle="collapse"
+                          data-bs-target="#collapse<%= product._id %>"
+                          aria-expanded="true"
+                          aria-controls="collapse<%= product._id %>"
+                        >
+                          <%= product._id %>
+                        </button>
+                      </h2>
+                      <div
+                        id="collapse<%= product._id %>"
+                        class="accordion-collapse collapse show"
+                        aria-labelledby="heading<%= product._id %>"
+                        data-bs-parent="#accordionExample"
+                      >
+                        <!-- info product -->
+                        <div class="accordion-body">
+                          <!-- images -->
+                          <div class="row">
+                            <div class="col">
+                              <!-- content  -->
+                              <div>
+                                <div
+                                  class="toast"
+                                  role="alert"
+                                  aria-live="assertive"
+                                  aria-atomic="true"
+                                >
+                                  <div class="toast-header">
+                                    <img
+                                      src="..."
+                                      class="rounded me-2"
+                                      alt="..."
+                                    />
+                                    <strong class="me-auto">Bootstrap</strong>
+                                  </div>
+                                  <div class="toast-body">
+                                    <img
+                                      src="..."
+                                      class="img-fluid"
+                                      alt="..."
+                                    />
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+                          <!-- price -->
+                          <div class="row">
+                            <div class="col">
+                              <!--  -->
+                              <h2>Price:</h2>
+                            </div>
+
+                            <div class="col">
+                              <p><%= product.price %></p>
+                            </div>
+                          </div>
+
+                          <!-- type -->
+                          <div class="row">
+                            <div class="col">
+                              <h2>Type:</h2>
+                            </div>
+                            <div class="col">
+                              <p><%= product.type %></p>
+                            </div>
+                          </div>
+
+                          <!-- size -->
+                          <div class="row">
+                            <div class="col">
+                              <h2>Size:</h2>
+                            </div>
+                            <div class="col">
+                              <p><%= product.size %></p>
+                            </div>
+                          </div>
+
+                          <!-- amout -->
+                          <div class="row">
+                            <div class="col">
+                              <h2>Amout:</h2>
+                            </div>
+                            <div class="col">
+                              <p><%= product.amout %></p>
+                            </div>
+                          </div>
+
+                          <!-- action -->
+                          <div class="row">
+                            <div class="col">
+                              <!-- action btn -->
+                              <div>
+                                <a
+                                  href="/admin/product/update/<%= product._id %> "
+                                  role="button"
+                                  class="btn btn-success"
+                                >
+                                  + Update
+                                </a>
+
+                                <a
+                                  href="/admin/product/delete/<%= product._id %> "
+                                  role="button"
+                                  class="btn btn-danger"
+                                >
+                                  - Delete
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <% }); %> <% } %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

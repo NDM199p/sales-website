@@ -1,3 +1,5 @@
+"use strict";
+
 const Category = require("../models/category");
 
 function render(res, path, json) {
@@ -8,7 +10,7 @@ function render(res, path, json) {
   });
 }
 
-exports.index = function (req, res, next) {
+exports.index = function (req, res) {
   Category.find({}, function (error, categories) {
     if (error) throw error.message;
 
@@ -16,7 +18,7 @@ exports.index = function (req, res, next) {
   });
 };
 
-exports.details = function (req, res, next) {
+exports.details = function (req, res) {
   let _id = req.params.categoryId;
   Category.findById(_id, function (error, category) {
     if (error) throw error.message;
@@ -25,7 +27,7 @@ exports.details = function (req, res, next) {
   });
 };
 
-exports.delete = function (req, res, next) {
+exports.delete = function (req, res) {
   let _id = req.params.categoryId;
 
   Category.findById(_id, function (error, category) {
@@ -35,7 +37,7 @@ exports.delete = function (req, res, next) {
   });
 };
 
-exports.deletePOST = function (req, res, next) {
+exports.deletePOST = function (req, res) {
   let _id = req.body._id;
   Category.deleteOne({ _id }, function (error, result) {
     if (error) throw error.message;
@@ -44,11 +46,11 @@ exports.deletePOST = function (req, res, next) {
   });
 };
 
-exports.create = function (req, res, next) {
+exports.create = function (req, res) {
   render(res, "add");
 };
 
-exports.createPOST = function (req, res, next) {
+exports.createPOST = function (req, res) {
   let data = req.body;
   let newCategory = new Category(data);
   newCategory.save(function (error, result) {
@@ -58,7 +60,7 @@ exports.createPOST = function (req, res, next) {
   });
 };
 
-exports.edit = function (req, res, next) {
+exports.edit = function (req, res) {
   let _id = req.params.category_id;
   Category.findById(_id, function (error, category) {
     if (error) throw error.message;
@@ -67,7 +69,7 @@ exports.edit = function (req, res, next) {
   });
 };
 
-exports.updatePOST = function (req, res, next) {
+exports.updatePOST = function (req, res) {
   let newCategory = req.body;
   Category.findOneAndUpdate(
     { _id: req.params.category_id },

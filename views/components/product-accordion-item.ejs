@@ -1,0 +1,112 @@
+<div class="accordion-item">
+  <h2 class="accordion-header" id="heading${product._id}">
+    <button
+      class="accordion-button"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#collapse${product._id}"
+      aria-expanded="true"
+      aria-controls="collapse${product._id}"
+    >
+      "${product._id}"
+    </button>
+  </h2>
+  <div
+    id="collapse${product._id}"
+    class="accordion-collapse collapse show"
+    aria-labelledby="heading${product._id}"
+    data-bs-parent="#accordionExample"
+  >
+    <!-- info product -->
+    <div class="accordion-body">
+      <!-- images -->
+      <div class="row">
+        <div class="col">
+          <!-- content  -->
+          <div>
+            <div
+              class="toast"
+              role="alert"
+              aria-live="assertive"
+              aria-atomic="true"
+            >
+              <div class="toast-header">
+                <img src="..." class="rounded me-2" alt="..." />
+                <strong class="me-auto">Bootstrap</strong>
+              </div>
+              <div class="toast-body">
+                <img src="..." class="img-fluid" alt="..." />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- price -->
+      <div class="row">
+        <div class="col">
+          <!--  -->
+          <h2>Price:</h2>
+        </div>
+
+        <div class="col">
+          <p><%= product.price %></p>
+        </div>
+      </div>
+
+      <!-- type -->
+      <div class="row">
+        <div class="col">
+          <h2>Type:</h2>
+        </div>
+        <div class="col">
+          <p><%= product.type %></p>
+        </div>
+      </div>
+
+      <!-- size -->
+      <div class="row">
+        <div class="col">
+          <h2>Size:</h2>
+        </div>
+        <div class="col">
+          <p><%= product.size %></p>
+        </div>
+      </div>
+
+      <!-- amout -->
+      <div class="row">
+        <div class="col">
+          <h2>Amout:</h2>
+        </div>
+        <div class="col">
+          <p><%= product.amout %></p>
+        </div>
+      </div>
+
+      <!-- action -->
+      <div class="row">
+        <div class="col">
+          <!-- action btn -->
+          <div>
+            <a
+              href="/admin/product/update/<%= product._id %> "
+              role="button"
+              class="btn btn-success"
+            >
+              + Update
+            </a>
+
+            <a
+              href="/admin/product/delete/<%= product._id %> "
+              role="button"
+              class="btn btn-danger"
+            >
+              - Delete
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+<!-- Accordion product items -->
+<div>
+  <!-- menu -->
+  <div class="row">
+    <div class="col">
+      <!-- menu -->
+      <div class="p-2">
+        <a
+          href="/admin/product/create/<%= productDetails._id %> "
+          role="button"
+          class="btn btn-primary"
+          >+ Create</a
+        >
+      </div>
+    </div>
+  </div>
+
+  <hr />
+
+  <!-- items -->
+  <div class="row">
+    <div class="col">
+      <!-- content -->
+      <div class="accordion" id="accordionExample">
+        <!--  product accordion item -->
+        <% if(products){ products.forEach(product => {%> <%-
+        include("product-accordion-item") %> <% }); } %>
+      </div>
+    </div>
+  </div>
+</div>

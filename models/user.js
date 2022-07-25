@@ -1,7 +1,9 @@
+"use strict";
+
 var mongoose = require("mongoose");
 var bcrypt = require("bcryptjs");
-var { Schema } = mongoose;
-var CONFIG = require("../configs/index.config");
+
+const { Schema } = mongoose;
 
 const UserSchema = new Schema({
   name: String,
@@ -14,4 +16,6 @@ UserSchema.methods.verifyPassword = function (password) {
   return bcrypt.compareSync(password, hash);
 };
 
-module.exports = User = mongoose.model("User", UserSchema);
+const User = mongoose.model("User", UserSchema);
+
+module.exports = User;

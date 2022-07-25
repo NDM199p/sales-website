@@ -1,0 +1,74 @@
+<!-- form product details-->
+<form action="/admin/product-details/create" method="POST" class="mb-3">
+  <!-- categories -->
+  <div class="mb-3">
+    <select
+      name="categoryId"
+      class="form-select"
+      aria-label="Default select example"
+    >
+      <option selected>Open this select menu</option>
+
+      <% categories.forEach(category => { %>
+      <option value="<%= category._id%>"><%= category.name%></option>
+      <% }); %>
+    </select>
+  </div>
+
+  <!-- name -->
+  <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label"
+      >Name Product</label
+    >
+    <input
+      name="name"
+      type="text"
+      class="form-control"
+      id="exampleFormControlInput1"
+      placeholder="Name Product"
+    />
+  </div>
+
+  <!-- describe -->
+  <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">Describe</label>
+    <input
+      name="describe"
+      type="text"
+      class="form-control"
+      id="exampleFormControlInput1"
+      placeholder="Describe"
+    />
+  </div>
+
+  <!-- video -->
+  <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label"
+      >Email address</label
+    >
+    <input
+      name="video"
+      type="file"
+      class="form-control"
+      id="exampleFormControlInput1"
+      placeholder="name@example.com"
+    />
+  </div>
+
+  <!-- slug -->
+  <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">Slug</label>
+    <input
+      name="slug"
+      type="text"
+      class="form-control"
+      id="exampleFormControlInput1"
+      placeholder="example-example-1"
+    />
+  </div>
+
+  <!-- create -->
+  <div class="mb-3">
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+</form>

@@ -1,0 +1,31 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Describe</th>
+      <th scope="col">Product Number</th>
+      <th colspan="2" scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% productDetails.forEach(function(product){ %>
+    <tr>
+      <th scope="row">
+        <a href="/admin/product-details/details/<%= product._id%>"
+          ><%= product._id%></a
+        >
+      </th>
+      <td><%= product.name%></td>
+      <td><%= product.describe%></td>
+      <td>5</td>
+      <td>
+        <a href="/admin/product-details/edit/<%= product._id%>">Update</a>
+      </td>
+      <td>
+        <a href="/admin/product-details/delete/<%= product._id%>">Delete</a>
+      </td>
+    </tr>
+    <% }); %>
+  </tbody>
+</table>

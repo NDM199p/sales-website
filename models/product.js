@@ -1,13 +1,25 @@
+"use strict";
+
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
 const ProductSchema = new Schema({
-  productDetailsId: Schema.Types.ObjectId,
+  productDetailsId: { type: Schema.Types.ObjectId, ref: "ProductDetails" },
   price: Number,
   images: [String],
-  count: Number,
+  amount: Number,
   type: String,
   size: String,
 });
 
-module.exports = Product = mongoose.model("Product", ProductSchema);
+ProductSchema.methods.createOrUpdateProduct = function (cb) {
+  return this.save(cb);
+};
+
+ProductSchema.methods.deleteProductById = function (cb) {
+  return mongoose.model("Product").deleteOne({ _id: this._id }, cb);
+};
+
+const Product = mongoose.model("Product", ProductSchema);
+
+module.exports = Product;

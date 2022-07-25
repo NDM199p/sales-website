@@ -9,4 +9,8 @@ const CategorySchema = new Schema({
   slug: String,
 });
 
+CategorySchema.statics.getCategories = function (cb) {
+  return this.find({}, cb);
+};
+
 module.exports = Category = mongoose.model("Category", CategorySchema);

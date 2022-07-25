@@ -1,0 +1,98 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1 class="mb-3">Create</h1>
+      <hr />
+      <h2>Product</h2>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-4">
+      <form method="POST">
+        <div class="row">
+          <div class="col">
+            <!-- Product -->
+            <div>
+              <div class="row">
+                <div class="col">
+                  <!-- Info Product -->
+                  <form action="/admin/product/create">
+                    <input
+                      type="hidden"
+                      name="productDetailsId"
+                      value="<%= productDetails._id %> "
+                    />
+                    <!-- Type -->
+                    <div class="mb-3">
+                      <label for="exampleFormControlInput1" class="form-label"
+                        >Type</label
+                      >
+                      <input
+                        name="type"
+                        type="text"
+                        class="form-control"
+                        id="exampleFormControlInput1"
+                        placeholder="example: black, white"
+                      />
+                    </div>
+
+                    <!-- size -->
+                    <div class="mb-3">
+                      <label for="exampleFormControlInput1" class="form-label"
+                        >Size</label
+                      >
+                      <input
+                        name="size"
+                        type="text"
+                        class="form-control"
+                        id="exampleFormControlInput1"
+                        placeholder="example: x, xl, xxl"
+                      />
+                    </div>
+
+                    <!-- price -->
+                    <div class="mb-3">
+                      <label for="exampleFormControlInput1" class="form-label"
+                        >Price</label
+                      >
+                      <input
+                        name="price"
+                        type="number"
+                        class="form-control"
+                        id="exampleFormControlInput1"
+                        placeholder="example: 150.000"
+                      />
+                    </div>
+
+                    <!-- amount -->
+                    <div class="mb-3">
+                      <label for="exampleFormControlInput1" class="form-label"
+                        >Amount</label
+                      >
+                      <input
+                        name="amount"
+                        type="number"
+                        class="form-control"
+                        id="exampleFormControlInput1"
+                        placeholder="example: 15"
+                      />
+                    </div>
+
+                    <!-- Images -->
+                    <div></div>
+
+                    <!-- create -->
+                    <div class="mb-3">
+                      <button type="submit">+ Create</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
